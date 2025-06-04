@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'github.com:szukalski/saas-on-aws-cdk',
 
   // Release configuration
-  release: true,
+  // release: true,
   releaseToNpm: true,
 
   // deps: [],                /* Runtime dependencies of this module. */
