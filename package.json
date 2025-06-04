@@ -2,7 +2,7 @@
   "name": "saas-on-aws-cdk",
   "repository": {
     "type": "git",
-    "url": "szukalski.github.com:szukalski/saas-on-aws-cdk"
+    "url": "github.com:szukalski/saas-on-aws-cdk"
   },
   "scripts": {
     "build": "npx projen build",
@@ -30,7 +30,7 @@
   },
   "author": {
     "name": "Dave Roberts",
-    "email": "davjrob@amazon.de",
+    "email": "szukalski@gmail.com",
     "organization": false
   },
   "devDependencies": {
