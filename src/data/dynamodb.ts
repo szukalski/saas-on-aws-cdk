@@ -1,7 +1,7 @@
-import { RemovalPolicy } from "aws-cdk-lib";
-import { AttributeType, TablePropsV2, TableV2 } from "aws-cdk-lib/aws-dynamodb";
-import { Effect, PolicyStatement, Role } from "aws-cdk-lib/aws-iam";
-import { Construct } from "constructs";
+import { RemovalPolicy } from 'aws-cdk-lib';
+import { AttributeType, TablePropsV2, TableV2 } from 'aws-cdk-lib/aws-dynamodb';
+import { Effect, PolicyStatement, Role } from 'aws-cdk-lib/aws-iam';
+import { Construct } from 'constructs';
 
 export class SoaTableV2 extends TableV2 {
   constructor(scope: Construct, id: string, props?: TablePropsV2) {
