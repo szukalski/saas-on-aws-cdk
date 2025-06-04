@@ -2,7 +2,7 @@
   "name": "saas-on-aws-cdk",
   "repository": {
     "type": "git",
-    "url": "github.com:szukalski/saas-on-aws-cdk"
+    "url": "https://github.com:szukalski/saas-on-aws-cdk"
   },
   "scripts": {
     "build": "npx projen build",

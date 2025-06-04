@@ -1,5 +1,4 @@
 import { awscdk } from 'projen';
-import { ReleaseTrigger } from 'projen/lib/release';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Dave Roberts',
   authorAddress: 'szukalski@gmail.com',
@@ -11,9 +10,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com:szukalski/saas-on-aws-cdk',
 
   // Release configuration
-  // release: true,
+  release: true,
   releaseToNpm: true,
-  releaseTrigger: ReleaseTrigger.manual()
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
