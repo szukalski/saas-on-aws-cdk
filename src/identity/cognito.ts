@@ -23,7 +23,7 @@ export class SoaUserPool extends UserPool {
       ...props,
     });
     this.logGroup = new SoaLogGroup(this, 'LogGroup', {
-      logGroupName: '/' + id + '/' + this.userPoolId,
+      logGroupName: '/userpool/' + this.userPoolId,
     });
   }
   addPreTokenGeneration() {
