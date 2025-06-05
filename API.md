@@ -1979,6 +1979,145 @@ Uniquely identifies this class.
 
 ---
 
+### SoaUserPoolPreTokenGeneration <a name="SoaUserPoolPreTokenGeneration" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration"></a>
+
+#### Initializers <a name="Initializers" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer"></a>
+
+```typescript
+import { SoaUserPoolPreTokenGeneration } from 'saas-on-aws-cdk'
+
+new SoaUserPoolPreTokenGeneration(scope: Construct, id: string, props: SoaUserPoolPreTokenGenerationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.props">props</a></code> | <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps">SoaUserPoolPreTokenGenerationProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps">SoaUserPoolPreTokenGenerationProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.isConstruct"></a>
+
+```typescript
+import { SoaUserPoolPreTokenGeneration } from 'saas-on-aws-cdk'
+
+SoaUserPoolPreTokenGeneration.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="saas-on-aws-cdk.SoaUserPoolPreTokenGeneration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
+## Structs <a name="Structs" id="Structs"></a>
+
+### SoaUserPoolPreTokenGenerationProps <a name="SoaUserPoolPreTokenGenerationProps" id="saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps"></a>
+
+#### Initializer <a name="Initializer" id="saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps.Initializer"></a>
+
+```typescript
+import { SoaUserPoolPreTokenGenerationProps } from 'saas-on-aws-cdk'
+
+const soaUserPoolPreTokenGenerationProps: SoaUserPoolPreTokenGenerationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps.property.domainPrefix">domainPrefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps.property.userPool">userPool</a></code> | <code>aws-cdk-lib.aws_cognito.UserPool</code> | *No description.* |
+
+---
+
+##### `domainPrefix`<sup>Required</sup> <a name="domainPrefix" id="saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps.property.domainPrefix"></a>
+
+```typescript
+public readonly domainPrefix: string;
+```
+
+- *Type:* string
+
+---
+
+##### `userPool`<sup>Required</sup> <a name="userPool" id="saas-on-aws-cdk.SoaUserPoolPreTokenGenerationProps.property.userPool"></a>
+
+```typescript
+public readonly userPool: UserPool;
+```
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPool
+
+---
 
 
 

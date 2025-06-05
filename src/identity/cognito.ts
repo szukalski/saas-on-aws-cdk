@@ -40,8 +40,8 @@ export class SoaUserPool extends UserPool {
 }
 
 export interface SoaUserPoolPreTokenGenerationProps {
-  domainPrefix: string;
-  userPool: UserPool;
+  readonly domainPrefix: string;
+  readonly userPool: UserPool;
 }
 
 export class SoaUserPoolPreTokenGeneration extends Construct {
