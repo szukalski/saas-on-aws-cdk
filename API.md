@@ -1510,6 +1510,7 @@ new SoaUserPool(scope: Construct, id: string, props?: UserPoolProps)
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.addTrigger">addTrigger</a></code> | Add a lambda trigger to a user pool operation. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.grant">grant</a></code> | Adds an IAM policy statement associated with this user pool to an IAM principal's policy. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.registerIdentityProvider">registerIdentityProvider</a></code> | Register an identity provider with this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addMultiTenantClient">addMultiTenantClient</a></code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.addOidcProvider">addOidcProvider</a></code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.getOidcPrincipal">getOidcPrincipal</a></code> | *No description.* |
 
@@ -1686,6 +1687,12 @@ Register an identity provider with this user pool.
 - *Type:* aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider
 
 ---
+
+##### `addMultiTenantClient` <a name="addMultiTenantClient" id="saas-on-aws-cdk.SoaUserPool.addMultiTenantClient"></a>
+
+```typescript
+public addMultiTenantClient(): UserPoolClient
+```
 
 ##### `addOidcProvider` <a name="addOidcProvider" id="saas-on-aws-cdk.SoaUserPool.addOidcProvider"></a>
 

@@ -1,5 +1,5 @@
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
-import { FeaturePlan, LambdaVersion, StringAttribute, UserPool, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
+import { ClientAttributes, FeaturePlan, LambdaVersion, StringAttribute, UserPool, UserPoolClient, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
 import { OpenIdConnectPrincipal, OpenIdConnectProvider, PrincipalBase } from 'aws-cdk-lib/aws-iam';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -18,6 +18,20 @@ export class SoaUserPool extends UserPool {
       },
       removalPolicy: RemovalPolicy.DESTROY,
       ...props,
+    });
+  }
+  addMultiTenantClient(): UserPoolClient {
+    return this.addClient('UserPoolClient', {
+      authFlows: { userPassword: true },
+      readAttributes: new ClientAttributes()
+        .withStandardAttributes({ email: true })
+        .withCustomAttributes(...['tenantId', 'tenantRole']),
+      writeAttributes: new ClientAttributes()
+        .withStandardAttributes({ email: true })
+        .withCustomAttributes(...['tenantId', 'tenantRole']),
+      accessTokenValidity: Duration.minutes(60),
+      idTokenValidity: Duration.minutes(60),
+      refreshTokenValidity: Duration.days(30),
     });
   }
   addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdConnectProvider {
