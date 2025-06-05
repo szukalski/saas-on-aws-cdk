@@ -1710,14 +1710,8 @@ public addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdCo
 ##### `addPreTokenGeneration` <a name="addPreTokenGeneration" id="saas-on-aws-cdk.SoaUserPool.addPreTokenGeneration"></a>
 
 ```typescript
-public addPreTokenGeneration(id?: string): void
+public addPreTokenGeneration(): void
 ```
-
-###### `id`<sup>Optional</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addPreTokenGeneration.parameter.id"></a>
-
-- *Type:* string
-
----
 
 ##### `addTenantClient` <a name="addTenantClient" id="saas-on-aws-cdk.SoaUserPool.addTenantClient"></a>
 
