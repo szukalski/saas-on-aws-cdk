@@ -27,10 +27,10 @@ export class SoaUserPool extends UserPool {
     });
   }
   addPreTokenGeneration() {
-    const domain = this.userPoolId;
+    const domain = this.userPoolId.toLowerCase();
     this.addDomain(domain, {
       cognitoDomain: {
-        domainPrefix: domain.toLowerCase() + '-auth',
+        domainPrefix: domain + '-auth',
       },
     });
     const preTokenGenerationFn = new NodejsFunction(this, 'PreTokenGenerationFn', {
