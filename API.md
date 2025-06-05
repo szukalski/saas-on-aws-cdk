@@ -1510,7 +1510,9 @@ new SoaUserPool(scope: Construct, id: string, props?: UserPoolProps)
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.addTrigger">addTrigger</a></code> | Add a lambda trigger to a user pool operation. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.grant">grant</a></code> | Adds an IAM policy statement associated with this user pool to an IAM principal's policy. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.registerIdentityProvider">registerIdentityProvider</a></code> | Register an identity provider with this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addOidcProvider">addOidcProvider</a></code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.addTenantClient">addTenantClient</a></code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.getOidcPrincipal">getOidcPrincipal</a></code> | *No description.* |
 
 ---
 
@@ -1686,6 +1688,24 @@ Register an identity provider with this user pool.
 
 ---
 
+##### `addOidcProvider` <a name="addOidcProvider" id="saas-on-aws-cdk.SoaUserPool.addOidcProvider"></a>
+
+```typescript
+public addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdConnectProvider
+```
+
+###### `oidcEndpoint`<sup>Required</sup> <a name="oidcEndpoint" id="saas-on-aws-cdk.SoaUserPool.addOidcProvider.parameter.oidcEndpoint"></a>
+
+- *Type:* string
+
+---
+
+###### `userPoolClientId`<sup>Required</sup> <a name="userPoolClientId" id="saas-on-aws-cdk.SoaUserPool.addOidcProvider.parameter.userPoolClientId"></a>
+
+- *Type:* string
+
+---
+
 ##### `addTenantClient` <a name="addTenantClient" id="saas-on-aws-cdk.SoaUserPool.addTenantClient"></a>
 
 ```typescript
@@ -1701,6 +1721,24 @@ public addTenantClient(id: string, options?: UserPoolClientOptions): UserPoolCli
 ###### `options`<sup>Optional</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addTenantClient.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_cognito.UserPoolClientOptions
+
+---
+
+##### `getOidcPrincipal` <a name="getOidcPrincipal" id="saas-on-aws-cdk.SoaUserPool.getOidcPrincipal"></a>
+
+```typescript
+public getOidcPrincipal(oidcProvider: OpenIdConnectProvider, userPoolClientId: string): PrincipalBase
+```
+
+###### `oidcProvider`<sup>Required</sup> <a name="oidcProvider" id="saas-on-aws-cdk.SoaUserPool.getOidcPrincipal.parameter.oidcProvider"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.OpenIdConnectProvider
+
+---
+
+###### `userPoolClientId`<sup>Required</sup> <a name="userPoolClientId" id="saas-on-aws-cdk.SoaUserPool.getOidcPrincipal.parameter.userPoolClientId"></a>
+
+- *Type:* string
 
 ---
 
