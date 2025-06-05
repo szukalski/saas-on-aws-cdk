@@ -1461,6 +1461,505 @@ Uniquely identifies this class.
 
 ---
 
+### SoaUserPool <a name="SoaUserPool" id="saas-on-aws-cdk.SoaUserPool"></a>
+
+#### Initializers <a name="Initializers" id="saas-on-aws-cdk.SoaUserPool.Initializer"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+new SoaUserPool(scope: Construct, id: string, props?: UserPoolProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_cognito.UserPoolProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="saas-on-aws-cdk.SoaUserPool.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="saas-on-aws-cdk.SoaUserPool.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addClient">addClient</a></code> | Add a new app client to this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addDomain">addDomain</a></code> | Associate a domain to this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addGroup">addGroup</a></code> | Add a new group to this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addResourceServer">addResourceServer</a></code> | Add a new resource server to this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addTrigger">addTrigger</a></code> | Add a lambda trigger to a user pool operation. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.grant">grant</a></code> | Adds an IAM policy statement associated with this user pool to an IAM principal's policy. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.registerIdentityProvider">registerIdentityProvider</a></code> | Register an identity provider with this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.addTenantClient">addTenantClient</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="saas-on-aws-cdk.SoaUserPool.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="saas-on-aws-cdk.SoaUserPool.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="saas-on-aws-cdk.SoaUserPool.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addClient` <a name="addClient" id="saas-on-aws-cdk.SoaUserPool.addClient"></a>
+
+```typescript
+public addClient(id: string, options?: UserPoolClientOptions): UserPoolClient
+```
+
+Add a new app client to this user pool.
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addClient.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addClient.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolClientOptions
+
+---
+
+##### `addDomain` <a name="addDomain" id="saas-on-aws-cdk.SoaUserPool.addDomain"></a>
+
+```typescript
+public addDomain(id: string, options: UserPoolDomainOptions): UserPoolDomain
+```
+
+Associate a domain to this user pool.
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addDomain.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addDomain.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolDomainOptions
+
+---
+
+##### `addGroup` <a name="addGroup" id="saas-on-aws-cdk.SoaUserPool.addGroup"></a>
+
+```typescript
+public addGroup(id: string, options: UserPoolGroupOptions): UserPoolGroup
+```
+
+Add a new group to this user pool.
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addGroup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addGroup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolGroupOptions
+
+---
+
+##### `addResourceServer` <a name="addResourceServer" id="saas-on-aws-cdk.SoaUserPool.addResourceServer"></a>
+
+```typescript
+public addResourceServer(id: string, options: UserPoolResourceServerOptions): UserPoolResourceServer
+```
+
+Add a new resource server to this user pool.
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addResourceServer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addResourceServer.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolResourceServerOptions
+
+---
+
+##### `addTrigger` <a name="addTrigger" id="saas-on-aws-cdk.SoaUserPool.addTrigger"></a>
+
+```typescript
+public addTrigger(operation: UserPoolOperation, fn: IFunction, lambdaVersion?: LambdaVersion): void
+```
+
+Add a lambda trigger to a user pool operation.
+
+> [https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html)
+
+###### `operation`<sup>Required</sup> <a name="operation" id="saas-on-aws-cdk.SoaUserPool.addTrigger.parameter.operation"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolOperation
+
+---
+
+###### `fn`<sup>Required</sup> <a name="fn" id="saas-on-aws-cdk.SoaUserPool.addTrigger.parameter.fn"></a>
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
+###### `lambdaVersion`<sup>Optional</sup> <a name="lambdaVersion" id="saas-on-aws-cdk.SoaUserPool.addTrigger.parameter.lambdaVersion"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.LambdaVersion
+
+---
+
+##### `grant` <a name="grant" id="saas-on-aws-cdk.SoaUserPool.grant"></a>
+
+```typescript
+public grant(grantee: IGrantable, actions: ...string[]): Grant
+```
+
+Adds an IAM policy statement associated with this user pool to an IAM principal's policy.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="saas-on-aws-cdk.SoaUserPool.grant.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="saas-on-aws-cdk.SoaUserPool.grant.parameter.actions"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### `registerIdentityProvider` <a name="registerIdentityProvider" id="saas-on-aws-cdk.SoaUserPool.registerIdentityProvider"></a>
+
+```typescript
+public registerIdentityProvider(provider: IUserPoolIdentityProvider): void
+```
+
+Register an identity provider with this user pool.
+
+###### `provider`<sup>Required</sup> <a name="provider" id="saas-on-aws-cdk.SoaUserPool.registerIdentityProvider.parameter.provider"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider
+
+---
+
+##### `addTenantClient` <a name="addTenantClient" id="saas-on-aws-cdk.SoaUserPool.addTenantClient"></a>
+
+```typescript
+public addTenantClient(id: string, options?: UserPoolClientOptions): UserPoolClient
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addTenantClient.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addTenantClient.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPoolClientOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.fromUserPoolArn">fromUserPoolArn</a></code> | Import an existing user pool based on its ARN. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.fromUserPoolId">fromUserPoolId</a></code> | Import an existing user pool based on its id. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="saas-on-aws-cdk.SoaUserPool.isConstruct"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+SoaUserPool.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="saas-on-aws-cdk.SoaUserPool.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="saas-on-aws-cdk.SoaUserPool.isOwnedResource"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+SoaUserPool.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="saas-on-aws-cdk.SoaUserPool.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="saas-on-aws-cdk.SoaUserPool.isResource"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+SoaUserPool.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="saas-on-aws-cdk.SoaUserPool.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromUserPoolArn` <a name="fromUserPoolArn" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolArn"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+SoaUserPool.fromUserPoolArn(scope: Construct, id: string, userPoolArn: string)
+```
+
+Import an existing user pool based on its ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `userPoolArn`<sup>Required</sup> <a name="userPoolArn" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolArn.parameter.userPoolArn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromUserPoolId` <a name="fromUserPoolId" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolId"></a>
+
+```typescript
+import { SoaUserPool } from 'saas-on-aws-cdk'
+
+SoaUserPool.fromUserPoolId(scope: Construct, id: string, userPoolId: string)
+```
+
+Import an existing user pool based on its id.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolId.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolId.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `userPoolId`<sup>Required</sup> <a name="userPoolId" id="saas-on-aws-cdk.SoaUserPool.fromUserPoolId.parameter.userPoolId"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.identityProviders">identityProviders</a></code> | <code>aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider[]</code> | Get all identity providers registered with this user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.userPoolArn">userPoolArn</a></code> | <code>string</code> | The ARN of the user pool. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.userPoolId">userPoolId</a></code> | <code>string</code> | The physical ID of this user pool resource. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.userPoolProviderName">userPoolProviderName</a></code> | <code>string</code> | User pool provider name. |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.userPoolProviderUrl">userPoolProviderUrl</a></code> | <code>string</code> | User pool provider URL. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="saas-on-aws-cdk.SoaUserPool.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="saas-on-aws-cdk.SoaUserPool.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="saas-on-aws-cdk.SoaUserPool.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `identityProviders`<sup>Required</sup> <a name="identityProviders" id="saas-on-aws-cdk.SoaUserPool.property.identityProviders"></a>
+
+```typescript
+public readonly identityProviders: IUserPoolIdentityProvider[];
+```
+
+- *Type:* aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider[]
+
+Get all identity providers registered with this user pool.
+
+---
+
+##### `userPoolArn`<sup>Required</sup> <a name="userPoolArn" id="saas-on-aws-cdk.SoaUserPool.property.userPoolArn"></a>
+
+```typescript
+public readonly userPoolArn: string;
+```
+
+- *Type:* string
+
+The ARN of the user pool.
+
+---
+
+##### `userPoolId`<sup>Required</sup> <a name="userPoolId" id="saas-on-aws-cdk.SoaUserPool.property.userPoolId"></a>
+
+```typescript
+public readonly userPoolId: string;
+```
+
+- *Type:* string
+
+The physical ID of this user pool resource.
+
+---
+
+##### `userPoolProviderName`<sup>Required</sup> <a name="userPoolProviderName" id="saas-on-aws-cdk.SoaUserPool.property.userPoolProviderName"></a>
+
+```typescript
+public readonly userPoolProviderName: string;
+```
+
+- *Type:* string
+
+User pool provider name.
+
+---
+
+##### `userPoolProviderUrl`<sup>Required</sup> <a name="userPoolProviderUrl" id="saas-on-aws-cdk.SoaUserPool.property.userPoolProviderUrl"></a>
+
+```typescript
+public readonly userPoolProviderUrl: string;
+```
+
+- *Type:* string
+
+User pool provider URL.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SoaUserPool.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="saas-on-aws-cdk.SoaUserPool.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 
 
 
