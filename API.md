@@ -1511,8 +1511,6 @@ new SoaUserPool(scope: Construct, id: string, props?: UserPoolProps)
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.grant">grant</a></code> | Adds an IAM policy statement associated with this user pool to an IAM principal's policy. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.registerIdentityProvider">registerIdentityProvider</a></code> | Register an identity provider with this user pool. |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.addOidcProvider">addOidcProvider</a></code> | *No description.* |
-| <code><a href="#saas-on-aws-cdk.SoaUserPool.addPreTokenGeneration">addPreTokenGeneration</a></code> | *No description.* |
-| <code><a href="#saas-on-aws-cdk.SoaUserPool.addTenantClient">addTenantClient</a></code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.SoaUserPool.getOidcPrincipal">getOidcPrincipal</a></code> | *No description.* |
 
 ---
@@ -1704,36 +1702,6 @@ public addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdCo
 ###### `userPoolClientId`<sup>Required</sup> <a name="userPoolClientId" id="saas-on-aws-cdk.SoaUserPool.addOidcProvider.parameter.userPoolClientId"></a>
 
 - *Type:* string
-
----
-
-##### `addPreTokenGeneration` <a name="addPreTokenGeneration" id="saas-on-aws-cdk.SoaUserPool.addPreTokenGeneration"></a>
-
-```typescript
-public addPreTokenGeneration(domainPrefix: string): void
-```
-
-###### `domainPrefix`<sup>Required</sup> <a name="domainPrefix" id="saas-on-aws-cdk.SoaUserPool.addPreTokenGeneration.parameter.domainPrefix"></a>
-
-- *Type:* string
-
----
-
-##### `addTenantClient` <a name="addTenantClient" id="saas-on-aws-cdk.SoaUserPool.addTenantClient"></a>
-
-```typescript
-public addTenantClient(id: string, options?: UserPoolClientOptions): UserPoolClient
-```
-
-###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaUserPool.addTenantClient.parameter.id"></a>
-
-- *Type:* string
-
----
-
-###### `options`<sup>Optional</sup> <a name="options" id="saas-on-aws-cdk.SoaUserPool.addTenantClient.parameter.options"></a>
-
-- *Type:* aws-cdk-lib.aws_cognito.UserPoolClientOptions
 
 ---
 

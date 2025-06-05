@@ -1,14 +1,11 @@
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
-import { ClientAttributes, FeaturePlan, LambdaVersion, StringAttribute, UserPool, UserPoolClient, UserPoolClientOptions, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
+import { FeaturePlan, LambdaVersion, StringAttribute, UserPool, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
 import { OpenIdConnectPrincipal, OpenIdConnectProvider, PrincipalBase } from 'aws-cdk-lib/aws-iam';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
-import { SoaLogGroup } from '../log-group/log-group';
 
 export class SoaUserPool extends UserPool {
-  private readonly logGroup: LogGroup;
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
@@ -22,12 +19,36 @@ export class SoaUserPool extends UserPool {
       removalPolicy: RemovalPolicy.DESTROY,
       ...props,
     });
-    this.logGroup = new SoaLogGroup(this, 'LogGroup', {
-      logGroupName: '/userpool/' + this.userPoolId,
+  }
+  addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdConnectProvider {
+    return new OpenIdConnectProvider(this, 'MyOidcProvider', {
+      url: oidcEndpoint,
+      clientIds: [
+        userPoolClientId,
+      ],
     });
   }
-  addPreTokenGeneration(domainPrefix: string) {
-    this.addDomain(domainPrefix, {
+  getOidcPrincipal(oidcProvider: OpenIdConnectProvider, userPoolClientId: string): PrincipalBase {
+    const oidcPrincipal = new OpenIdConnectPrincipal(oidcProvider)
+      .withConditions({
+        'ForAllValues:StringEquals': {
+          'cognito-identity.amazonaws.com:aud': userPoolClientId,
+        },
+      });
+    return oidcPrincipal.withSessionTags();
+  }
+}
+
+export interface SoaUserPoolPreTokenGenerationProps {
+  domainPrefix: string;
+  userPool: UserPool;
+}
+
+export class SoaUserPoolPreTokenGeneration extends Construct {
+  constructor(scope: Construct, id: string, props: SoaUserPoolPreTokenGenerationProps) {
+    super(scope, id);
+    const { domainPrefix, userPool } = props;
+    userPool.addDomain(domainPrefix, {
       cognitoDomain: {
         domainPrefix: domainPrefix,
       },
@@ -56,41 +77,7 @@ export const handler = function(event: any, context: any) {
       runtime: Runtime.NODEJS_LATEST,
       handler: 'handler',
       timeout: Duration.seconds(30),
-      logGroup: this.logGroup,
     });
-    this.addTrigger(UserPoolOperation.PRE_TOKEN_GENERATION_CONFIG, preTokenGenerationFn, LambdaVersion.V2_0);
-  }
-  addTenantClient(id: string, options?: UserPoolClientOptions): UserPoolClient {
-    return this.addClient('UserPoolClient', {
-      userPoolClientName: id,
-      authFlows: { userPassword: true },
-      readAttributes: new ClientAttributes()
-        .withStandardAttributes({ email: true })
-        .withCustomAttributes(...['tenantId', 'tenantRole']),
-      writeAttributes: new ClientAttributes()
-        .withStandardAttributes({ email: true })
-        .withCustomAttributes(...['tenantId', 'tenantRole']),
-      accessTokenValidity: Duration.minutes(60),
-      idTokenValidity: Duration.minutes(60),
-      refreshTokenValidity: Duration.days(30),
-      ...options,
-    });
-  }
-  addOidcProvider(oidcEndpoint: string, userPoolClientId: string): OpenIdConnectProvider {
-    return new OpenIdConnectProvider(this, 'MyOidcProvider', {
-      url: oidcEndpoint,
-      clientIds: [
-        userPoolClientId,
-      ],
-    });
-  }
-  getOidcPrincipal(oidcProvider: OpenIdConnectProvider, userPoolClientId: string): PrincipalBase {
-    const oidcPrincipal = new OpenIdConnectPrincipal(oidcProvider)
-      .withConditions({
-        'ForAllValues:StringEquals': {
-          'cognito-identity.amazonaws.com:aud': userPoolClientId,
-        },
-      });
-    return oidcPrincipal.withSessionTags();
+    userPool.addTrigger(UserPoolOperation.PRE_TOKEN_GENERATION_CONFIG, preTokenGenerationFn, LambdaVersion.V2_0);
   }
 }
