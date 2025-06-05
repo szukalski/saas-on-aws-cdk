@@ -1,5 +1,5 @@
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
-import { ClientAttributes, LambdaVersion, StringAttribute, UserPool, UserPoolClient, UserPoolClientOptions, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
+import { ClientAttributes, FeaturePlan, LambdaVersion, StringAttribute, UserPool, UserPoolClient, UserPoolClientOptions, UserPoolOperation, UserPoolProps } from 'aws-cdk-lib/aws-cognito';
 import { OpenIdConnectPrincipal, OpenIdConnectProvider, PrincipalBase } from 'aws-cdk-lib/aws-iam';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -9,6 +9,7 @@ import { SoaLogGroup } from '../log-group/log-group';
 export class SoaUserPool extends UserPool {
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
+      featurePlan: FeaturePlan.ESSENTIALS,
       userPoolName: id,
       selfSignUpEnabled: false,
       autoVerify: { email: true },
