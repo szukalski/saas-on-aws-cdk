@@ -26,11 +26,10 @@ export class SoaUserPool extends UserPool {
       logGroupName: '/userpool/' + this.userPoolId,
     });
   }
-  addPreTokenGeneration() {
-    const domain = this.userPoolId.toLowerCase();
-    this.addDomain(domain, {
+  addPreTokenGeneration(domainPrefix: string) {
+    this.addDomain(domainPrefix, {
       cognitoDomain: {
-        domainPrefix: domain + '-auth',
+        domainPrefix: domainPrefix,
       },
     });
     const preTokenGenerationFn = new NodejsFunction(this, 'PreTokenGenerationFn', {
