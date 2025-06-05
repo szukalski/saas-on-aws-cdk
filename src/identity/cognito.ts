@@ -3,12 +3,12 @@ import { ClientAttributes, FeaturePlan, LambdaVersion, StringAttribute, UserPool
 import { OpenIdConnectPrincipal, OpenIdConnectProvider, PrincipalBase } from 'aws-cdk-lib/aws-iam';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 import { SoaLogGroup } from '../log-group/log-group';
-import { LogGroup } from 'aws-cdk-lib/aws-logs';
 
 export class SoaUserPool extends UserPool {
-  private readonly logGroup: LogGroup
+  private readonly logGroup: LogGroup;
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
@@ -28,7 +28,7 @@ export class SoaUserPool extends UserPool {
     });
   }
   addPreTokenGeneration(id?: string) {
-    const domain = id ?? this.userPoolId
+    const domain = id ?? this.userPoolId;
     this.addDomain(domain, {
       cognitoDomain: {
         domainPrefix: domain.toLowerCase() + '-auth',
