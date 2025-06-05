@@ -12,7 +12,6 @@ export class SoaUserPool extends UserPool {
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
-      userPoolName: id,
       selfSignUpEnabled: false,
       autoVerify: { email: true },
       signInAliases: { email: true, username: true },
@@ -27,8 +26,8 @@ export class SoaUserPool extends UserPool {
       logGroupName: '/' + id + '/' + this.userPoolId,
     });
   }
-  addPreTokenGeneration(id?: string) {
-    const domain = id ?? this.userPoolId;
+  addPreTokenGeneration() {
+    const domain = this.userPoolId;
     this.addDomain(domain, {
       cognitoDomain: {
         domainPrefix: domain.toLowerCase() + '-auth',
