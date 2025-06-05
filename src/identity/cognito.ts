@@ -5,8 +5,10 @@ import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 import { SoaLogGroup } from '../log-group/log-group';
+import { LogGroup } from 'aws-cdk-lib/aws-logs';
 
 export class SoaUserPool extends UserPool {
+  private readonly logGroup: LogGroup
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
@@ -21,12 +23,15 @@ export class SoaUserPool extends UserPool {
       removalPolicy: RemovalPolicy.DESTROY,
       ...props,
     });
-    const logGroup = new SoaLogGroup(this, 'LogGroup', {
+    this.logGroup = new SoaLogGroup(this, 'LogGroup', {
       logGroupName: '/' + id + '/' + this.userPoolId,
     });
-    this.addDomain(id, {
+  }
+  addPreTokenGeneration(id?: string) {
+    const domain = id ?? this.userPoolId
+    this.addDomain(domain, {
       cognitoDomain: {
-        domainPrefix: id.toLowerCase() + '-auth',
+        domainPrefix: domain.toLowerCase() + '-auth',
       },
     });
     const preTokenGenerationFn = new NodejsFunction(this, 'PreTokenGenerationFn', {
@@ -53,7 +58,7 @@ export const handler = function(event: any, context: any) {
       runtime: Runtime.NODEJS_LATEST,
       handler: 'handler',
       timeout: Duration.seconds(30),
-      logGroup: logGroup,
+      logGroup: this.logGroup,
     });
     this.addTrigger(UserPoolOperation.PRE_TOKEN_GENERATION_CONFIG, preTokenGenerationFn, LambdaVersion.V2_0);
   }
