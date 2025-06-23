@@ -2421,5 +2421,61 @@ public readonly credentials: AwsCredentialIdentity;
 
 ---
 
+### TokenVendingMachineProps <a name="TokenVendingMachineProps" id="saas-on-aws-cdk.TokenVendingMachineProps"></a>
+
+#### Initializer <a name="Initializer" id="saas-on-aws-cdk.TokenVendingMachineProps.Initializer"></a>
+
+```typescript
+import { TokenVendingMachineProps } from 'saas-on-aws-cdk'
+
+const tokenVendingMachineProps: TokenVendingMachineProps = { ... }
+```
+
+
+## Classes <a name="Classes" id="Classes"></a>
+
+### TokenVendingMachine <a name="TokenVendingMachine" id="saas-on-aws-cdk.TokenVendingMachine"></a>
+
+#### Initializers <a name="Initializers" id="saas-on-aws-cdk.TokenVendingMachine.Initializer"></a>
+
+```typescript
+import { TokenVendingMachine } from 'saas-on-aws-cdk'
+
+new TokenVendingMachine()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.TokenVendingMachine.getCredentialsWithAssumeRole">getCredentialsWithAssumeRole</a></code> | *No description.* |
+
+---
+
+##### `getCredentialsWithAssumeRole` <a name="getCredentialsWithAssumeRole" id="saas-on-aws-cdk.TokenVendingMachine.getCredentialsWithAssumeRole"></a>
+
+```typescript
+public getCredentialsWithAssumeRole(jwt: string, roleArn: string): AwsCredentialIdentity
+```
+
+###### `jwt`<sup>Required</sup> <a name="jwt" id="saas-on-aws-cdk.TokenVendingMachine.getCredentialsWithAssumeRole.parameter.jwt"></a>
+
+- *Type:* string
+
+---
+
+###### `roleArn`<sup>Required</sup> <a name="roleArn" id="saas-on-aws-cdk.TokenVendingMachine.getCredentialsWithAssumeRole.parameter.roleArn"></a>
+
+- *Type:* string
+
+---
+
+
+
 
 

@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   bundledDeps: [
     '@aws-sdk/client-dynamodb',
+    '@aws-sdk/client-sts',
     '@aws-sdk/lib-dynamodb',
     '@aws-sdk/types',
     'aws-lambda',

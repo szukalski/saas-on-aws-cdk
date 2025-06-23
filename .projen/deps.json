@@ -98,6 +98,10 @@
       "type": "bundled"
     },
     {
+      "name": "@aws-sdk/client-sts",
+      "type": "bundled"
+    },
+    {
       "name": "@aws-sdk/lib-dynamodb",
       "type": "bundled"
     },
