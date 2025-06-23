@@ -27,7 +27,7 @@ export class ServiceServer extends Construct {
     this.lambda = new NodejsFunction(this, `${props.serviceName}Function`, {
       entry: `./src/${props.serviceName}/${props.serviceName}.function.ts`,
       handler: 'handler',
-      runtime: Runtime.NODEJS_LATEST,
+      runtime: Runtime.NODEJS_20_X,
       logGroup: logGroup,
       bundling: {
         nodeModules: ['re2-wasm'],
