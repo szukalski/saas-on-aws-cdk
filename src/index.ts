@@ -1,4 +1,4 @@
 export { SoaLogGroup } from './log-group/log-group';
-export { SoaTableV2 } from './data/dynamodb';
-export { SoaUserPool, SoaUserPoolPreTokenGeneration, SoaUserPoolPreTokenGenerationProps } from './identity/cognito';
-export { nextId } from './util/id';
+export { MultiTenantTableV2 } from './data/dynamodb';
+export { MultiTenantUserPool, MultiTenantPreTokenGenerationProps, MultiTenantPreTokenGeneration } from './identity/cognito';
+export { extractJwt, extractTenantId, nextUuid } from './identity/util';

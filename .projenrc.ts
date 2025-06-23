@@ -14,6 +14,15 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
 
   deps: [
+    'aws-lambda',
+    'jwt-decode',
+  ],
+  bundledDeps: [
+    'aws-lambda',
+    'jwt-decode',
+  ],
+  devDeps: [
+    '@types/aws-lambda',
   ],
   gitignore: [
     'yarn.lock',

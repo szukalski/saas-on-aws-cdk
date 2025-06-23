@@ -3,7 +3,7 @@ import { AttributeType, TablePropsV2, TableV2 } from 'aws-cdk-lib/aws-dynamodb';
 import { Effect, PolicyStatement, Role } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
-export class SoaTableV2 extends TableV2 {
+export class MultiTenantTableV2 extends TableV2 {
   constructor(scope: Construct, id: string, props?: TablePropsV2) {
     super(scope, id, {
       partitionKey: {

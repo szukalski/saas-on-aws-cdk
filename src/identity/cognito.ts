@@ -5,7 +5,7 @@ import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 
-export class SoaUserPool extends UserPool {
+export class MultiTenantUserPool extends UserPool {
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
@@ -53,13 +53,13 @@ export class SoaUserPool extends UserPool {
   }
 }
 
-export interface SoaUserPoolPreTokenGenerationProps {
+export interface MultiTenantPreTokenGenerationProps {
   readonly domainPrefix: string;
   readonly userPool: UserPool;
 }
 
-export class SoaUserPoolPreTokenGeneration extends Construct {
-  constructor(scope: Construct, id: string, props: SoaUserPoolPreTokenGenerationProps) {
+export class MultiTenantPreTokenGeneration extends Construct {
+  constructor(scope: Construct, id: string, props: MultiTenantPreTokenGenerationProps) {
     super(scope, id);
     const { domainPrefix, userPool } = props;
     userPool.addDomain(domainPrefix, {
