@@ -18,7 +18,7 @@ export class MultiTenantTableV2 extends TableV2 {
       ...props,
     });
   }
-  grantTenantRead(role: Role) {
+  grantTenantRead(role: Role, prefix?: string) {
     role.addToPolicy(
       new PolicyStatement({
         effect: Effect.ALLOW,
@@ -36,14 +36,14 @@ export class MultiTenantTableV2 extends TableV2 {
         conditions: {
           'ForAllValues:StringEquals': {
             'dynamodb:LeadingKeys': [
-              '${aws:PrincipalTag/tenantId}',
+              prefix+'${aws:PrincipalTag/tenantId}',
             ],
           },
         },
       }),
     );
   }
-  grantTenantWrite(role: Role) {
+  grantTenantWrite(role: Role, prefix?: string) {
     role.addToPolicy(
       new PolicyStatement({
         effect: Effect.ALLOW,
@@ -65,7 +65,7 @@ export class MultiTenantTableV2 extends TableV2 {
         conditions: {
           'ForAllValues:StringEquals': {
             'dynamodb:LeadingKeys': [
-              '${aws:PrincipalTag/tenantId}',
+              prefix+'${aws:PrincipalTag/tenantId}',
             ],
           },
         },

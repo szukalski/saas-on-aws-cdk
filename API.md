@@ -670,7 +670,7 @@ the region of the replica table.
 ##### `grantTenantRead` <a name="grantTenantRead" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantRead"></a>
 
 ```typescript
-public grantTenantRead(role: Role): void
+public grantTenantRead(role: Role, prefix?: string): void
 ```
 
 ###### `role`<sup>Required</sup> <a name="role" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantRead.parameter.role"></a>
@@ -679,15 +679,27 @@ public grantTenantRead(role: Role): void
 
 ---
 
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantRead.parameter.prefix"></a>
+
+- *Type:* string
+
+---
+
 ##### `grantTenantWrite` <a name="grantTenantWrite" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantWrite"></a>
 
 ```typescript
-public grantTenantWrite(role: Role): void
+public grantTenantWrite(role: Role, prefix?: string): void
 ```
 
 ###### `role`<sup>Required</sup> <a name="role" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantWrite.parameter.role"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.Role
+
+---
+
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="saas-on-aws-cdk.MultiTenantTableV2.grantTenantWrite.parameter.prefix"></a>
+
+- *Type:* string
 
 ---
 
