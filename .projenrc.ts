@@ -14,10 +14,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
 
   deps: [
-    'aws-lambda',
-    'jwt-decode',
   ],
   bundledDeps: [
+    '@aws-sdk/client-dynamodb',
+    '@aws-sdk/lib-dynamodb',
+    '@aws-sdk/types',
     'aws-lambda',
     'jwt-decode',
   ],
