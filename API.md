@@ -1532,6 +1532,127 @@ Uniquely identifies this class.
 
 ---
 
+### ServiceServer <a name="ServiceServer" id="saas-on-aws-cdk.ServiceServer"></a>
+
+#### Initializers <a name="Initializers" id="saas-on-aws-cdk.ServiceServer.Initializer"></a>
+
+```typescript
+import { ServiceServer } from 'saas-on-aws-cdk'
+
+new ServiceServer(scope: Construct, id: string, props: ServiceServerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.Initializer.parameter.props">props</a></code> | <code><a href="#saas-on-aws-cdk.ServiceServerProps">ServiceServerProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="saas-on-aws-cdk.ServiceServer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.ServiceServer.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="saas-on-aws-cdk.ServiceServer.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#saas-on-aws-cdk.ServiceServerProps">ServiceServerProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="saas-on-aws-cdk.ServiceServer.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="saas-on-aws-cdk.ServiceServer.isConstruct"></a>
+
+```typescript
+import { ServiceServer } from 'saas-on-aws-cdk'
+
+ServiceServer.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="saas-on-aws-cdk.ServiceServer.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.SpecRestApi</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.property.lambda">lambda</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunction</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="saas-on-aws-cdk.ServiceServer.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="saas-on-aws-cdk.ServiceServer.property.api"></a>
+
+```typescript
+public readonly api: SpecRestApi;
+```
+
+- *Type:* aws-cdk-lib.aws_apigateway.SpecRestApi
+
+---
+
+##### `lambda`<sup>Required</sup> <a name="lambda" id="saas-on-aws-cdk.ServiceServer.property.lambda"></a>
+
+```typescript
+public readonly lambda: NodejsFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda_nodejs.NodejsFunction
+
+---
+
+
 ### SoaLogGroup <a name="SoaLogGroup" id="saas-on-aws-cdk.SoaLogGroup"></a>
 
 #### Initializers <a name="Initializers" id="saas-on-aws-cdk.SoaLogGroup.Initializer"></a>
@@ -2087,6 +2208,90 @@ Uniquely identifies this class.
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### AwsCredentialIdentity <a name="AwsCredentialIdentity" id="saas-on-aws-cdk.AwsCredentialIdentity"></a>
+
+AWS credential identity interface compatible with Smithy types.
+
+#### Initializer <a name="Initializer" id="saas-on-aws-cdk.AwsCredentialIdentity.Initializer"></a>
+
+```typescript
+import { AwsCredentialIdentity } from 'saas-on-aws-cdk'
+
+const awsCredentialIdentity: AwsCredentialIdentity = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity.property.accessKeyId">accessKeyId</a></code> | <code>string</code> | AWS access key ID. |
+| <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity.property.secretAccessKey">secretAccessKey</a></code> | <code>string</code> | AWS secret access key. |
+| <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity.property.credentialScope">credentialScope</a></code> | <code>string</code> | Credential provider name (optional). |
+| <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity.property.expiration">expiration</a></code> | <code>Date</code> | Credential expiration time (optional). |
+| <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity.property.sessionToken">sessionToken</a></code> | <code>string</code> | AWS session token (optional). |
+
+---
+
+##### `accessKeyId`<sup>Required</sup> <a name="accessKeyId" id="saas-on-aws-cdk.AwsCredentialIdentity.property.accessKeyId"></a>
+
+```typescript
+public readonly accessKeyId: string;
+```
+
+- *Type:* string
+
+AWS access key ID.
+
+---
+
+##### `secretAccessKey`<sup>Required</sup> <a name="secretAccessKey" id="saas-on-aws-cdk.AwsCredentialIdentity.property.secretAccessKey"></a>
+
+```typescript
+public readonly secretAccessKey: string;
+```
+
+- *Type:* string
+
+AWS secret access key.
+
+---
+
+##### `credentialScope`<sup>Optional</sup> <a name="credentialScope" id="saas-on-aws-cdk.AwsCredentialIdentity.property.credentialScope"></a>
+
+```typescript
+public readonly credentialScope: string;
+```
+
+- *Type:* string
+
+Credential provider name (optional).
+
+---
+
+##### `expiration`<sup>Optional</sup> <a name="expiration" id="saas-on-aws-cdk.AwsCredentialIdentity.property.expiration"></a>
+
+```typescript
+public readonly expiration: Date;
+```
+
+- *Type:* Date
+
+Credential expiration time (optional).
+
+---
+
+##### `sessionToken`<sup>Optional</sup> <a name="sessionToken" id="saas-on-aws-cdk.AwsCredentialIdentity.property.sessionToken"></a>
+
+```typescript
+public readonly sessionToken: string;
+```
+
+- *Type:* string
+
+AWS session token (optional).
+
+---
+
 ### MultiTenantPreTokenGenerationProps <a name="MultiTenantPreTokenGenerationProps" id="saas-on-aws-cdk.MultiTenantPreTokenGenerationProps"></a>
 
 #### Initializer <a name="Initializer" id="saas-on-aws-cdk.MultiTenantPreTokenGenerationProps.Initializer"></a>
@@ -2123,6 +2328,84 @@ public readonly userPool: UserPool;
 ```
 
 - *Type:* aws-cdk-lib.aws_cognito.UserPool
+
+---
+
+### ServiceServerProps <a name="ServiceServerProps" id="saas-on-aws-cdk.ServiceServerProps"></a>
+
+#### Initializer <a name="Initializer" id="saas-on-aws-cdk.ServiceServerProps.Initializer"></a>
+
+```typescript
+import { ServiceServerProps } from 'saas-on-aws-cdk'
+
+const serviceServerProps: ServiceServerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.serviceName">serviceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.nodejsFunctionProps">nodejsFunctionProps</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunctionProps</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.specRestApiProps">specRestApiProps</a></code> | <code>aws-cdk-lib.aws_apigateway.SpecRestApiProps</code> | *No description.* |
+
+---
+
+##### `serviceName`<sup>Required</sup> <a name="serviceName" id="saas-on-aws-cdk.ServiceServerProps.property.serviceName"></a>
+
+```typescript
+public readonly serviceName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `nodejsFunctionProps`<sup>Optional</sup> <a name="nodejsFunctionProps" id="saas-on-aws-cdk.ServiceServerProps.property.nodejsFunctionProps"></a>
+
+```typescript
+public readonly nodejsFunctionProps: NodejsFunctionProps;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda_nodejs.NodejsFunctionProps
+
+---
+
+##### `specRestApiProps`<sup>Optional</sup> <a name="specRestApiProps" id="saas-on-aws-cdk.ServiceServerProps.property.specRestApiProps"></a>
+
+```typescript
+public readonly specRestApiProps: SpecRestApiProps;
+```
+
+- *Type:* aws-cdk-lib.aws_apigateway.SpecRestApiProps
+
+---
+
+### SmithyContext <a name="SmithyContext" id="saas-on-aws-cdk.SmithyContext"></a>
+
+#### Initializer <a name="Initializer" id="saas-on-aws-cdk.SmithyContext.Initializer"></a>
+
+```typescript
+import { SmithyContext } from 'saas-on-aws-cdk'
+
+const smithyContext: SmithyContext = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.credentials">credentials</a></code> | <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity">AwsCredentialIdentity</a></code> | *No description.* |
+
+---
+
+##### `credentials`<sup>Required</sup> <a name="credentials" id="saas-on-aws-cdk.SmithyContext.property.credentials"></a>
+
+```typescript
+public readonly credentials: AwsCredentialIdentity;
+```
+
+- *Type:* <a href="#saas-on-aws-cdk.AwsCredentialIdentity">AwsCredentialIdentity</a>
 
 ---
 

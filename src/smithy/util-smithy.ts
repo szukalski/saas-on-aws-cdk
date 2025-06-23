@@ -1,5 +1,5 @@
-import { AwsCredentialIdentity } from '@aws-sdk/types';
+import { AwsCredentialIdentity } from '../identity/util-token-vending-machine';
 
 export interface SmithyContext {
-  credentials: AwsCredentialIdentity;
+  readonly credentials: AwsCredentialIdentity;
 }

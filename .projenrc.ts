@@ -25,6 +25,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   devDeps: [
     '@types/aws-lambda',
   ],
+  peerDeps: [
+  ],
   gitignore: [
     'yarn.lock',
   ],
