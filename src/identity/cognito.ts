@@ -12,6 +12,9 @@ export class MultiTenantUserPool extends UserPool {
       selfSignUpEnabled: false,
       autoVerify: { email: true },
       signInAliases: { email: true, username: false }, // email login by default
+      standardAttributes: {
+        email: { required: true, mutable: false },
+      },
       customAttributes: {
         tenantId: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenantId after creation!
         tenantRole: new StringAttribute({ minLen: 1, maxLen: 36, mutable: true }),
