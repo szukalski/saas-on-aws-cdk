@@ -2411,7 +2411,7 @@ const smithyContext: SmithyContext = { ... }
 
 ---
 
-##### `credentials`<sup>Required</sup> <a name="credentials" id="saas-on-aws-cdk.SmithyContext.property.credentials"></a>
+##### `credentials`<sup>Optional</sup> <a name="credentials" id="saas-on-aws-cdk.SmithyContext.property.credentials"></a>
 
 ```typescript
 public readonly credentials: AwsCredentialIdentity;
