@@ -12,13 +12,13 @@ export class MultiTenantUserPool extends UserPool {
       featurePlan: FeaturePlan.ESSENTIALS,
       selfSignUpEnabled: false,
       signInAliases: {
-        email: false,
         username: true,
-        phone: false
+        email: false,
+        phone: false,
       },
       standardAttributes: {
         email: { required: false, mutable: true },
-        phoneNumber: { required: false, mutable: true }
+        phoneNumber: { required: false, mutable: true },
       },
       customAttributes: {
         tenantId: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenantId after creation!
