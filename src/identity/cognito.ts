@@ -5,15 +5,20 @@ import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 
+// Cognito user pool with username only for testing purposes, probably want something different for production..
 export class MultiTenantUserPool extends UserPool {
   constructor(scope: Construct, id: string, props?: UserPoolProps) {
     super(scope, id, {
       featurePlan: FeaturePlan.ESSENTIALS,
       selfSignUpEnabled: false,
-      autoVerify: { email: true },
-      signInAliases: { email: true, username: false }, // email login by default
+      signInAliases: {
+        email: false,
+        username: true,
+        phone: false
+      },
       standardAttributes: {
-        email: { required: true, mutable: false },
+        email: { required: false, mutable: true },
+        phoneNumber: { required: false, mutable: true }
       },
       customAttributes: {
         tenantId: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenantId after creation!
@@ -27,10 +32,8 @@ export class MultiTenantUserPool extends UserPool {
     return this.addClient('UserPoolClient', {
       authFlows: { userPassword: true },
       readAttributes: new ClientAttributes()
-        .withStandardAttributes({ email: true })
         .withCustomAttributes(...['tenantId', 'tenantRole']),
       writeAttributes: new ClientAttributes()
-        .withStandardAttributes({ email: true })
         .withCustomAttributes(...['tenantId', 'tenantRole']),
       accessTokenValidity: Duration.minutes(60),
       idTokenValidity: Duration.minutes(60),
