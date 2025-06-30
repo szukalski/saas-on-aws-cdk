@@ -22,7 +22,7 @@ export class MultiTenantUserPool extends UserPool {
       },
       customAttributes: {
         tenantId: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenantId after creation!
-        tenantRole: new StringAttribute({ minLen: 1, maxLen: 36, mutable: true }),
+        role: new StringAttribute({ minLen: 1, maxLen: 36, mutable: true }),
       },
       removalPolicy: RemovalPolicy.DESTROY,
       ...props,
@@ -32,9 +32,9 @@ export class MultiTenantUserPool extends UserPool {
     return this.addClient('UserPoolClient', {
       authFlows: { userPassword: true },
       readAttributes: new ClientAttributes()
-        .withCustomAttributes(...['tenantId', 'tenantRole']),
+        .withCustomAttributes(...['tenantId', 'role']),
       writeAttributes: new ClientAttributes()
-        .withCustomAttributes(...['tenantId', 'tenantRole']),
+        .withCustomAttributes(...['tenantId', 'role']),
       accessTokenValidity: Duration.minutes(60),
       idTokenValidity: Duration.minutes(60),
       refreshTokenValidity: Duration.days(30),
@@ -84,7 +84,7 @@ export const handler = function(event: any, context: any) {
           'https://aws.amazon.com/tags': {
             principal_tags: {
               tenantId: [userAttributes['custom:tenantId']],
-              tenantRole: [userAttributes['custom:tenantRole']],
+              role: [userAttributes['custom:role']],
             },
           },
         },

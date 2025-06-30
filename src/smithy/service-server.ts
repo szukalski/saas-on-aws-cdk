@@ -1,54 +1,53 @@
 import { readFileSync } from 'fs';
 import { Aws, CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
-import { ApiDefinition, LogGroupLogDestination, SpecRestApi, SpecRestApiProps } from 'aws-cdk-lib/aws-apigateway';
+import { ApiDefinition, LogGroupLogDestination, MethodLoggingLevel, SpecRestApi, SpecRestApiProps } from 'aws-cdk-lib/aws-apigateway';
 import { Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { Runtime } from 'aws-cdk-lib/aws-lambda';
-import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { IFunction } from 'aws-cdk-lib/aws-lambda';
+import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 import { SoaLogGroup } from '../log-group/log-group';
 
-function readOpenApiDefinition(serviceName: string) {
-  const openApiPath = `./src/smithy/${serviceName}/openapi/${serviceName}.openapi.json`;
-  return JSON.parse(readFileSync(openApiPath, 'utf8'));
-}
-
 export interface ServiceServerProps {
+  readonly openApiPath: string;
+  readonly serviceFunction: IFunction;
   readonly serviceName: string;
-  readonly nodejsFunctionProps?: NodejsFunctionProps;
+  readonly logGroup?: ILogGroup;
+  readonly serviceAuthorizer?: IFunction;
   readonly specRestApiProps?: SpecRestApiProps;
 }
 
 export class ServiceServer extends Construct {
   api: SpecRestApi;
-  lambda: NodejsFunction;
+  serviceFunction: IFunction;
+  serviceAuthorizer?: IFunction;
   constructor(scope: Construct, id: string, props: ServiceServerProps) {
     super(scope, id);
-    const logGroup = new SoaLogGroup(this, props.serviceName+'LogGroup');
-    this.lambda = new NodejsFunction(this, `${props.serviceName}Function`, {
-      entry: `./src/${props.serviceName}/${props.serviceName}.function.ts`,
-      handler: 'handler',
-      runtime: Runtime.NODEJS_20_X,
-      logGroup: logGroup,
-      bundling: {
-        nodeModules: ['re2-wasm'],
-      },
-      ...props.nodejsFunctionProps,
-    });
-    const apiDefinition = readOpenApiDefinition(props.serviceName);
-    this.api = new SpecRestApi(this, `${props.serviceName}Api`, {
+    const { openApiPath, serviceName } = props;
+    this.serviceAuthorizer = props.serviceAuthorizer ?? undefined;
+    this.serviceFunction = props.serviceFunction;
+
+    // Create a log group for the service
+    const logGroup = props.logGroup ?? new SoaLogGroup(this, 'LogGroup');
+
+    // Create API using OpenAPI spec generated from Smithy model
+    const apiDefinition = JSON.parse(readFileSync(openApiPath, 'utf8'));
+    this.api = new SpecRestApi(this, `${serviceName}Api`, {
       apiDefinition: ApiDefinition.fromInline(apiDefinition),
       cloudWatchRoleRemovalPolicy: RemovalPolicy.DESTROY,
       deployOptions: {
         accessLogDestination: new LogGroupLogDestination(logGroup),
+        loggingLevel: MethodLoggingLevel.INFO,
       },
       ...props.specRestApiProps,
     });
 
-    const apiRole = new Role(this, `${props.serviceName}ApiRole`, {
+    // Give permission to the API to invoke the service function
+    const apiRole = new Role(this, `${serviceName}ApiRole`, {
       assumedBy: new ServicePrincipal('apigateway.amazonaws.com'),
     });
-    this.lambda.grantInvoke(apiRole);
-    // Update the OpenAPI definition to add the Lambda integration URI.
+    this.serviceFunction.grantInvoke(apiRole);
+
+    // Update the OpenAPI definition to add the Lambda integration URI from the service function
     for (const path in apiDefinition.paths) {
       for (const operation in apiDefinition.paths[path]) {
         const op = apiDefinition.paths[path][operation];
@@ -62,13 +61,27 @@ export class ServiceServer extends Construct {
         if (integration.type === 'mock') {
           continue;
         }
-        integration.uri = `arn:${Aws.PARTITION}:apigateway:${Aws.REGION}:lambda:path/2015-03-31/functions/${this.lambda.functionArn}/invocations`;
+        integration.uri = `arn:${Aws.PARTITION}:apigateway:${Aws.REGION}:lambda:path/2015-03-31/functions/${this.serviceFunction.functionArn}/invocations`;
         integration.credentials = apiRole.roleArn;
       }
     }
 
-    new CfnOutput(this, `${props.serviceName}ApiUrl`, {
-      key: `${props.serviceName}ApiUrl`,
+    // Update the OpenAPI definition to add the authorizer URI if it exists
+    if (this.serviceAuthorizer) {
+      this.serviceAuthorizer.grantInvoke(apiRole);
+      for (const securityScheme in apiDefinition.components.securitySchemes) {
+        const scheme = apiDefinition.components.securitySchemes[securityScheme];
+        const authorizer = scheme['x-amazon-apigateway-authorizer'];
+        if (!authorizer) {
+          continue;
+        }
+        authorizer.authorizerUri = `arn:${Aws.PARTITION}:apigateway:${Aws.REGION}:lambda:path/2015-03-31/functions/${this.serviceAuthorizer.functionArn}/invocations`;
+        authorizer.authorizerCredentials = apiRole.roleArn;
+      }
+    }
+
+    new CfnOutput(this, `${serviceName}ApiUrl`, {
+      key: `${serviceName}ApiUrl`,
       value: this.api.url,
     });
   }

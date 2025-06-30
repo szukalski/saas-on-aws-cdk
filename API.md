@@ -1628,7 +1628,8 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#saas-on-aws-cdk.ServiceServer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#saas-on-aws-cdk.ServiceServer.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.SpecRestApi</code> | *No description.* |
-| <code><a href="#saas-on-aws-cdk.ServiceServer.property.lambda">lambda</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunction</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.property.serviceFunction">serviceFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.property.serviceAuthorizer">serviceAuthorizer</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 
 ---
 
@@ -1654,13 +1655,23 @@ public readonly api: SpecRestApi;
 
 ---
 
-##### `lambda`<sup>Required</sup> <a name="lambda" id="saas-on-aws-cdk.ServiceServer.property.lambda"></a>
+##### `serviceFunction`<sup>Required</sup> <a name="serviceFunction" id="saas-on-aws-cdk.ServiceServer.property.serviceFunction"></a>
 
 ```typescript
-public readonly lambda: NodejsFunction;
+public readonly serviceFunction: IFunction;
 ```
 
-- *Type:* aws-cdk-lib.aws_lambda_nodejs.NodejsFunction
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
+##### `serviceAuthorizer`<sup>Optional</sup> <a name="serviceAuthorizer" id="saas-on-aws-cdk.ServiceServer.property.serviceAuthorizer"></a>
+
+```typescript
+public readonly serviceAuthorizer: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -2357,9 +2368,32 @@ const serviceServerProps: ServiceServerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.openApiPath">openApiPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.serviceFunction">serviceFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.serviceName">serviceName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.nodejsFunctionProps">nodejsFunctionProps</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunctionProps</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.serviceAuthorizer">serviceAuthorizer</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 | <code><a href="#saas-on-aws-cdk.ServiceServerProps.property.specRestApiProps">specRestApiProps</a></code> | <code>aws-cdk-lib.aws_apigateway.SpecRestApiProps</code> | *No description.* |
+
+---
+
+##### `openApiPath`<sup>Required</sup> <a name="openApiPath" id="saas-on-aws-cdk.ServiceServerProps.property.openApiPath"></a>
+
+```typescript
+public readonly openApiPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `serviceFunction`<sup>Required</sup> <a name="serviceFunction" id="saas-on-aws-cdk.ServiceServerProps.property.serviceFunction"></a>
+
+```typescript
+public readonly serviceFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -2373,13 +2407,23 @@ public readonly serviceName: string;
 
 ---
 
-##### `nodejsFunctionProps`<sup>Optional</sup> <a name="nodejsFunctionProps" id="saas-on-aws-cdk.ServiceServerProps.property.nodejsFunctionProps"></a>
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="saas-on-aws-cdk.ServiceServerProps.property.logGroup"></a>
 
 ```typescript
-public readonly nodejsFunctionProps: NodejsFunctionProps;
+public readonly logGroup: ILogGroup;
 ```
 
-- *Type:* aws-cdk-lib.aws_lambda_nodejs.NodejsFunctionProps
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `serviceAuthorizer`<sup>Optional</sup> <a name="serviceAuthorizer" id="saas-on-aws-cdk.ServiceServerProps.property.serviceAuthorizer"></a>
+
+```typescript
+public readonly serviceAuthorizer: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
