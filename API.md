@@ -2451,17 +2451,71 @@ const smithyContext: SmithyContext = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#saas-on-aws-cdk.SmithyContext.property.credentials">credentials</a></code> | <code><a href="#saas-on-aws-cdk.AwsCredentialIdentity">AwsCredentialIdentity</a></code> | *No description.* |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.accessKeyId">accessKeyId</a></code> | <code>string</code> | AWS access key ID. |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.secretAccessKey">secretAccessKey</a></code> | <code>string</code> | AWS secret access key. |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.credentialScope">credentialScope</a></code> | <code>string</code> | Credential provider name (optional). |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.expiration">expiration</a></code> | <code>Date</code> | Credential expiration time (optional). |
+| <code><a href="#saas-on-aws-cdk.SmithyContext.property.sessionToken">sessionToken</a></code> | <code>string</code> | AWS session token (optional). |
 
 ---
 
-##### `credentials`<sup>Optional</sup> <a name="credentials" id="saas-on-aws-cdk.SmithyContext.property.credentials"></a>
+##### `accessKeyId`<sup>Required</sup> <a name="accessKeyId" id="saas-on-aws-cdk.SmithyContext.property.accessKeyId"></a>
 
 ```typescript
-public readonly credentials: AwsCredentialIdentity;
+public readonly accessKeyId: string;
 ```
 
-- *Type:* <a href="#saas-on-aws-cdk.AwsCredentialIdentity">AwsCredentialIdentity</a>
+- *Type:* string
+
+AWS access key ID.
+
+---
+
+##### `secretAccessKey`<sup>Required</sup> <a name="secretAccessKey" id="saas-on-aws-cdk.SmithyContext.property.secretAccessKey"></a>
+
+```typescript
+public readonly secretAccessKey: string;
+```
+
+- *Type:* string
+
+AWS secret access key.
+
+---
+
+##### `credentialScope`<sup>Optional</sup> <a name="credentialScope" id="saas-on-aws-cdk.SmithyContext.property.credentialScope"></a>
+
+```typescript
+public readonly credentialScope: string;
+```
+
+- *Type:* string
+
+Credential provider name (optional).
+
+---
+
+##### `expiration`<sup>Optional</sup> <a name="expiration" id="saas-on-aws-cdk.SmithyContext.property.expiration"></a>
+
+```typescript
+public readonly expiration: Date;
+```
+
+- *Type:* Date
+
+Credential expiration time (optional).
+
+---
+
+##### `sessionToken`<sup>Optional</sup> <a name="sessionToken" id="saas-on-aws-cdk.SmithyContext.property.sessionToken"></a>
+
+```typescript
+public readonly sessionToken: string;
+```
+
+- *Type:* string
+
+AWS session token (optional).
 
 ---
 

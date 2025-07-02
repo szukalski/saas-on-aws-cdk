@@ -2,8 +2,8 @@ import { AwsCredentialIdentity } from '../token-vending-machine/util-token-vendi
 
 export function getCredentials(context: SmithyContext): AwsCredentialIdentity {
   return {
-    ...context
-  }
+    ...context,
+  };
 }
 
 export interface SmithyContext {
