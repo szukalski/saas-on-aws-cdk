@@ -36,7 +36,7 @@ export class MultiTenantTableV2 extends TableV2 {
         conditions: {
           'ForAllValues:StringEquals': {
             'dynamodb:LeadingKeys': [
-              prefix+'${aws:PrincipalTag/tenantId}',
+              prefix + '${aws:PrincipalTag/tenantId}',
             ],
           },
         },
@@ -65,7 +65,7 @@ export class MultiTenantTableV2 extends TableV2 {
         conditions: {
           'ForAllValues:StringEquals': {
             'dynamodb:LeadingKeys': [
-              prefix+'${aws:PrincipalTag/tenantId}',
+              prefix + '${aws:PrincipalTag/tenantId}',
             ],
           },
         },
