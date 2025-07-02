@@ -1,10 +1,10 @@
 import { DynamoDBClient, DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
-import { getCredentials, SmithyContext } from '../smithy/util-smithy';
+import { AwsCredentialIdentity } from '../token-vending-machine/util-token-vending-machine';
 
-export function createDocClient(context: SmithyContext): DynamoDBDocumentClient {
+export function createDocClient(credentials: AwsCredentialIdentity): DynamoDBDocumentClient {
   const config: DynamoDBClientConfig = {
-    credentials: getCredentials(context),
+    credentials: credentials,
   };
   return DynamoDBDocumentClient.from(new DynamoDBClient(config), { marshallOptions: { convertClassInstanceToMap: true } });
 }
