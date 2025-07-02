@@ -8,8 +8,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'saas-on-aws-cdk',
   projenrcTs: true,
   repositoryUrl: 'https://github.com:szukalski/saas-on-aws-cdk',
-
-  // Release configuration
   release: true,
   releaseToNpm: true,
 
@@ -31,10 +29,5 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: [
     'yarn.lock',
   ],
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 project.synth();
