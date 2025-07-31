@@ -13,10 +13,10 @@ export class TokenVendingMachine {
 
   async getCredentialsWithAssumeRole(jwt: string, roleArn: string): Promise<AwsCredentialIdentity> {
     try {
-      const tenant_id = extractTenantId(jwt);
+      const tenantId = extractTenantId(jwt);
 
       // Create a unique session name for this tenant
-      const sessionName = `tenant-${tenant_id}-${Date.now()}`;
+      const sessionName = `tenant-${tenantId}-${Date.now()}`;
 
       // Assume role with session tagging of tenant ID
       const assumeRoleCommand = new AssumeRoleCommand({
@@ -25,8 +25,8 @@ export class TokenVendingMachine {
         DurationSeconds: 3600, // 1 hour
         Tags: [
           {
-            Key: 'tenant_id',
-            Value: tenant_id,
+            Key: 'tenantId',
+            Value: tenantId,
           },
         ],
       });

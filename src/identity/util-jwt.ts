@@ -15,10 +15,10 @@ export function extractJwt(event: APIGatewayProxyEventV2): string {
 }
 
 interface MyJwtPayload extends JwtPayload {
-  tenant_id: string;
+  tenantId: string;
 }
 
 export function extractTenantId(token: string): string {
   const decoded = jwtDecode<MyJwtPayload>(token);
-  return decoded.tenant_id;
+  return decoded.tenantId;
 }

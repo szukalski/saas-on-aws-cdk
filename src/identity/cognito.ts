@@ -13,7 +13,7 @@ export class MultiTenantUserPool extends UserPool {
       selfSignUpEnabled: false,
       signInAliases: {
         username: true,
-        email: false,
+        email: true,
         phone: false,
       },
       standardAttributes: {
@@ -21,7 +21,7 @@ export class MultiTenantUserPool extends UserPool {
         phoneNumber: { required: false, mutable: true },
       },
       customAttributes: {
-        tenant_id: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenant_id after creation!
+        tenantId: new StringAttribute({ minLen: 1, maxLen: 36, mutable: false }), // Don't let anyone change the tenantId after creation!
         role: new StringAttribute({ minLen: 1, maxLen: 36, mutable: true }),
       },
       removalPolicy: RemovalPolicy.DESTROY,
@@ -32,9 +32,9 @@ export class MultiTenantUserPool extends UserPool {
     return this.addClient('UserPoolClient', {
       authFlows: { userPassword: true },
       readAttributes: new ClientAttributes()
-        .withCustomAttributes(...['tenant_id', 'role']),
+        .withCustomAttributes(...['tenantId', 'role']),
       writeAttributes: new ClientAttributes()
-        .withCustomAttributes(...['tenant_id', 'role']),
+        .withCustomAttributes(...['tenantId', 'role']),
       accessTokenValidity: Duration.minutes(60),
       idTokenValidity: Duration.minutes(60),
       refreshTokenValidity: Duration.days(30),
@@ -83,7 +83,7 @@ export const handler = function(event: any, context: any) {
         claimsToAddOrOverride: {
           'https://aws.amazon.com/tags': {
             principal_tags: {
-              tenant_id: [userAttributes['custom:tenant_id']],
+              tenantId: [userAttributes['custom:tenantId']],
               role: [userAttributes['custom:role']],
             },
           },
