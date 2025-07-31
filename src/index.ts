@@ -4,5 +4,6 @@ export { createDocClient } from './data/util-dynamodb';
 export { MultiTenantUserPool, MultiTenantPreTokenGenerationProps, MultiTenantPreTokenGeneration } from './identity/cognito';
 export { extractJwt, extractTenantId, nextUuid } from './identity/util-jwt';
 export { ServiceServer, ServiceServerProps } from './smithy/service-server';
+export * from './smithy/util-service';
 export { AwsCredentialIdentity } from './token-vending-machine/util-token-vending-machine';
 export { TokenVendingMachine, TokenVendingMachineProps } from './token-vending-machine/token-vending-machine';
