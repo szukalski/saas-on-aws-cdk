@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { Aws, CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
-import { ApiDefinition, LogGroupLogDestination, MethodLoggingLevel, SpecRestApi, SpecRestApiProps } from 'aws-cdk-lib/aws-apigateway';
+import { ApiDefinition, EndpointType, LogGroupLogDestination, MethodLoggingLevel, SpecRestApi, SpecRestApiProps } from 'aws-cdk-lib/aws-apigateway';
 import { Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
@@ -38,6 +38,7 @@ export class ServiceServer extends Construct {
         accessLogDestination: new LogGroupLogDestination(logGroup),
         loggingLevel: MethodLoggingLevel.INFO,
       },
+      endpointTypes: [EndpointType.REGIONAL],
       ...props.specRestApiProps,
     });
 
