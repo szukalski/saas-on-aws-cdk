@@ -157,7 +157,7 @@ new MultiTenantTableV2(scope: Construct, id: string, props?: TablePropsV2)
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this table. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.grant">grant</a></code> | Adds an IAM policy statement associated with this table to an IAM principal's policy. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.grantFullAccess">grantFullAccess</a></code> | Permits an IAM principal to all DynamoDB operations ('dynamodb:*') on this table. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.grantReadData">grantReadData</a></code> | Permits an IAM principal all data read operations on this table. |
@@ -222,11 +222,11 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy associated with this file system.
+Adds a statement to the resource policy associated with this table.
 
 A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
 
-Note that this does not work with imported file systems.
+Note that this does not work with imported tables.
 
 ###### `statement`<sup>Required</sup> <a name="statement" id="saas-on-aws-cdk.MultiTenantTableV2.addToResourcePolicy.parameter.statement"></a>
 
@@ -901,7 +901,7 @@ the table's name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.tableArn">tableArn</a></code> | <code>string</code> | The ARN of the table. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.property.tableName">tableName</a></code> | <code>string</code> | The name of the table. |
@@ -930,16 +930,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1453,7 +1454,7 @@ Import an existing user pool based on its id.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.identityProviders">identityProviders</a></code> | <code>aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider[]</code> | Get all identity providers registered with this user pool. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.property.userPoolArn">userPoolArn</a></code> | <code>string</code> | The ARN of the user pool. |
@@ -1481,16 +1482,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1778,6 +1780,7 @@ new SoaLogGroup(scope: Construct, id: string, props?: LogGroupProps)
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.addStream">addStream</a></code> | Create a new Log Stream for this Log Group. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.addSubscriptionFilter">addSubscriptionFilter</a></code> | Create a new Subscription Filter on this Log Group. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this log group. |
+| <code><a href="#saas-on-aws-cdk.SoaLogGroup.addTransformer">addTransformer</a></code> | Create a new Transformer on this Log Group. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.extractMetric">extractMetric</a></code> | Extract a metric from structured log events in the LogGroup. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.grant">grant</a></code> | Give the indicated permissions on this log group and all streams. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.grantRead">grantRead</a></code> | Give permissions to read and filter events from this log group. |
@@ -1909,6 +1912,30 @@ because CloudWatch Logs Resource Policies do not accept ARN principals.
 - *Type:* aws-cdk-lib.aws_iam.PolicyStatement
 
 The policy statement to add.
+
+---
+
+##### `addTransformer` <a name="addTransformer" id="saas-on-aws-cdk.SoaLogGroup.addTransformer"></a>
+
+```typescript
+public addTransformer(id: string, props: TransformerOptions): Transformer
+```
+
+Create a new Transformer on this Log Group.
+
+###### `id`<sup>Required</sup> <a name="id" id="saas-on-aws-cdk.SoaLogGroup.addTransformer.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the construct in its parent.
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="saas-on-aws-cdk.SoaLogGroup.addTransformer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.TransformerOptions
+
+Properties for creating the Transformer.
 
 ---
 
@@ -2205,10 +2232,12 @@ Import an existing LogGroup given its name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_logs.LogGroupGrants</code> | Collection of grant methods for a LogGroup. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.logGroupArn">logGroupArn</a></code> | <code>string</code> | The ARN of this log group. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.logGroupName">logGroupName</a></code> | <code>string</code> | The name of this log group. |
+| <code><a href="#saas-on-aws-cdk.SoaLogGroup.property.logGroupRef">logGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_logs.LogGroupReference</code> | A reference to a LogGroup resource. |
 
 ---
 
@@ -2230,16 +2259,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -2252,6 +2282,18 @@ public readonly stack: Stack;
 - *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="saas-on-aws-cdk.SoaLogGroup.property.grants"></a>
+
+```typescript
+public readonly grants: LogGroupGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.LogGroupGrants
+
+Collection of grant methods for a LogGroup.
 
 ---
 
@@ -2276,6 +2318,18 @@ public readonly logGroupName: string;
 - *Type:* string
 
 The name of this log group.
+
+---
+
+##### `logGroupRef`<sup>Required</sup> <a name="logGroupRef" id="saas-on-aws-cdk.SoaLogGroup.property.logGroupRef"></a>
+
+```typescript
+public readonly logGroupRef: LogGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_logs.LogGroupReference
+
+A reference to a LogGroup resource.
 
 ---
 

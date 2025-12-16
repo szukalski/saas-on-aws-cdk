@@ -1,8 +1,9 @@
 import { awscdk } from 'projen';
+const cdkVer = '2.232.2';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Dave Roberts',
   authorAddress: 'szukalski@gmail.com',
-  cdkVersion: '2.200.1',
+  cdkVersion: cdkVer,
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.8.0',
   name: 'saas-on-aws-cdk',
