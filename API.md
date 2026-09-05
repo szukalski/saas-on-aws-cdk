@@ -43,6 +43,7 @@ new MultiTenantPreTokenGeneration(scope: Construct, id: string, props: MultiTena
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantPreTokenGeneration.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantPreTokenGeneration.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -53,6 +54,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="saas-on-aws-cdk.MultiTenantPreTokenGeneration.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="saas-on-aws-cdk.MultiTenantPreTokenGeneration.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -156,6 +178,7 @@ new MultiTenantTableV2(scope: Construct, id: string, props?: TablePropsV2)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this table. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantTableV2.grant">grant</a></code> | Adds an IAM policy statement associated with this table to an IAM principal's policy. |
@@ -193,6 +216,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="saas-on-aws-cdk.MultiTenantTableV2.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="saas-on-aws-cdk.MultiTenantTableV2.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="saas-on-aws-cdk.MultiTenantTableV2.applyRemovalPolicy"></a>
 
@@ -1089,6 +1133,7 @@ new MultiTenantUserPool(scope: Construct, id: string, props?: UserPoolProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.addClient">addClient</a></code> | Add a new app client to this user pool. |
 | <code><a href="#saas-on-aws-cdk.MultiTenantUserPool.addDomain">addDomain</a></code> | Associate a domain to this user pool. |
@@ -1110,6 +1155,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="saas-on-aws-cdk.MultiTenantUserPool.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="saas-on-aws-cdk.MultiTenantUserPool.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="saas-on-aws-cdk.MultiTenantUserPool.applyRemovalPolicy"></a>
 
@@ -1629,6 +1695,7 @@ new ServiceServer(scope: Construct, id: string, props: ServiceServerProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.ServiceServer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.ServiceServer.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -1639,6 +1706,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="saas-on-aws-cdk.ServiceServer.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="saas-on-aws-cdk.ServiceServer.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -1775,6 +1863,7 @@ new SoaLogGroup(scope: Construct, id: string, props?: LogGroupProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#saas-on-aws-cdk.SoaLogGroup.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.addMetricFilter">addMetricFilter</a></code> | Create a new Metric Filter on this Log Group. |
 | <code><a href="#saas-on-aws-cdk.SoaLogGroup.addStream">addStream</a></code> | Create a new Log Stream for this Log Group. |
@@ -1799,6 +1888,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="saas-on-aws-cdk.SoaLogGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="saas-on-aws-cdk.SoaLogGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="saas-on-aws-cdk.SoaLogGroup.applyRemovalPolicy"></a>
 
